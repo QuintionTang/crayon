@@ -1,0 +1,37 @@
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function rgba-to-hex($color, $background: #fff) {
+    @if $color and alpha($color) != 1 {
+        $percent: alpha($color) * 100%;
+        $opaque: opacify($color, 1);
+
+        @return mix($opaque, $background, $percent);
+    } @else {
+        @return $color;
+    }
+}
+@function yiq-value($color) {
+    @if $color == transparent {
+        @return $body-color;
+    } @else if alpha($color) != 1 {
+        $color: rgba-to-hex($color);
+    }
+
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+
+    @return (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+}
+// 颜色对比
+@function yiq($color) {
+    $yiq: yiq-value($color);
+
+    @if ($yiq >= 160) {
+        @return rgba-to-hex(rgba($color, 0.4), #000);
+    } @else {
+        @return #fff;
+    }
+}

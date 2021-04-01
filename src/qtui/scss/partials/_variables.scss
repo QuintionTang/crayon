@@ -1,0 +1,167 @@
+// Variables
+//
+
+// *******************************************************************************
+// * Colors 颜色定义
+
+// 颜色体系
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$grays: () !default;
+
+$grays: map-merge(
+    (
+        "100": $gray-100,
+        "200": $gray-200,
+        "300": $gray-300,
+        "400": $gray-400,
+        "500": $gray-500,
+        "600": $gray-600,
+        "700": $gray-700,
+        "800": $gray-800,
+        "900": $gray-900,
+    ),
+    $grays
+);
+
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #28a745 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+
+$colors: () !default;
+$colors: map-merge(
+    (
+        "blue": $blue,
+        "indigo": $indigo,
+        "purple": $purple,
+        "pink": $pink,
+        "red": $red,
+        "orange": $orange,
+        "yellow": $yellow,
+        "green": $green,
+        "teal": $teal,
+        "cyan": $cyan,
+        "white": $white,
+        "gray": $gray-600,
+        "gray-dark": $gray-800,
+    ),
+    $colors
+);
+
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+
+$theme-colors: () !default;
+
+$theme-colors: map-merge(
+    (
+        "primary": $primary,
+        "secondary": $secondary,
+        "success": $success,
+        "info": $info,
+        "warning": $warning,
+        "danger": $danger,
+        "light": $light,
+        "dark": $dark,
+    ),
+    $theme-colors
+);
+
+$grays: (
+    "25": $gray-25,
+    "50": $gray-50,
+) !default;
+
+// *******************************************************************************
+// * font family and size 字体设置
+$qt-font-family-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif !default;
+$qt-font-family-serif: Georgia, "Times New Roman", serif;
+$qt-font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace !default;
+$qt-font-family-base: "Microsoft YaHei", "微软雅黑", "pingfang sc", "宋体",
+    Arial, Helvetica, sans-serif !default;
+
+$qt-font-size-base: 0.894rem !default;
+$qt-font-size-xl: 1.25rem !default;
+$qt-font-size-lg: 1rem !default;
+$qt-font-size-sm: 0.75rem !default;
+$qt-font-size-xs: $qt-font-size-sm !default;
+
+$tiny-font-size: 70% !default;
+$small-font-size: 85% !default;
+$big-font-size: 112% !default;
+$large-font-size: 150% !default;
+$xlarge-font-size: 170% !default;
+
+$qt-font-weight-semibold: 500 !default;
+$qt-font-weight-bolder: 900 !default;
+$qt-font-weight-lighter: lighter !default;
+$qt-font-weight-light: 300 !default;
+$qt-font-weight-normal: 400 !default;
+
+$line-height-base: 1.47 !default;
+$line-height-xl: 1.5 !default;
+$line-height-lg: 1.5 !default;
+$line-height-sm: 1.5 !default;
+$line-height-xs: 1.5 !default;
+
+$h1-font-size: 2.25rem !default;
+$h2-font-size: 1.813rem !default;
+$h3-font-size: 1.563rem !default;
+$h4-font-size: 1.313rem !default;
+$h5-font-size: 1rem !default;
+$h6-font-size: $qt-font-size-base !default;
+
+$headings-font-weight: $qt-font-weight-semibold !default;
+$headings-line-height: 1.1 !default;
+$headings-margin-bottom: $spacer !default;
+
+// display size
+$display1-size: 4rem !important;
+$display2-size: 3.5rem !important;
+$display3-size: 3rem !important;
+$display4-size: 2rem !important;
+
+$xxl-min-width: 1600px;
+$xxl-max-width: 1599px;
+$xl-min-width: 1200px;
+$xl-max-width: 1199px;
+$lg-min-width: 992px;
+$lg-max-width: 991px;
+$md-min-width: 768px;
+$md-max-width: 767px;
+$sm-min-width: 576px;
+$sm-max-width: 575px;
+
+$text-dark: #4e5155 !default;
+$text-muted: $gray-500 !default;
+$text-muted-hover: #8c8e90 !default;
+$blockquote-small-color: $gray-500 !default;
+$text-light: #babbbc !default;
+$text-lighter: #d1d2d3 !default;
+$text-lightest: rgba-to-hex($gray-200) !default;

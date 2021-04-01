@@ -1,0 +1,22 @@
+.ant {
+    &-form {
+        &-label {
+            color: $text-dark !important;
+        }
+        &-explain {
+            font-size: $qt-font-size-base;
+        }
+        label {
+            font-size: $qt-font-size-base;
+            color: $text-dark !important;
+            font-weight: $qt-font-weight-semibold;
+        }
+    }
+    &-alert {
+        &-content {
+        }
+        &-message {
+            font-size: $qt-font-size-base;
+        }
+    }
+}

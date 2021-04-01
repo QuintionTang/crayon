@@ -1,0 +1,52 @@
+@mixin alert-variant($background: null, $border: null, $color: null) {
+}
+
+@mixin qt-alert-variant($parent, $background) {
+    $background: rgba-to-hex(rgba($background, 0.15), #fff);
+    $border: rgba-to-hex(rgba($background, 0.94), #000);
+    $color: yiq($background);
+
+    #{$parent} {
+        border-color: $border;
+        background-color: $background;
+        color: $color;
+
+        hr {
+            border-top-color: $border;
+        }
+
+        .close,
+        .alert-link {
+            color: $color;
+        }
+    }
+}
+
+@mixin qt-alert-dark-variant($parent, $background, $color: null) {
+    $color: if($color, $color, yiq($background));
+
+    #{$parent} {
+        background-color: $background;
+        color: $color;
+
+        hr {
+            border-top-color: rgba(yiq($background), 0.2);
+        }
+
+        .close,
+        .alert-link {
+            color: $color;
+        }
+    }
+}
+
+@mixin color-yiq($color) {
+    color: yiq($color);
+}
+
+@each $color, $value in $theme-colors {
+    @if $color != primary and $color != light {
+        @include qt-alert-variant(".alert-#{$color}", $value);
+        @include qt-alert-dark-variant(".alert-dark-#{$color}", $value);
+    }
+}
