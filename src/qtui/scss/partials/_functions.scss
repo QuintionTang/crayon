@@ -35,3 +35,60 @@
         @return #fff;
     }
 }
+@function get-nav-colors(
+    $bg,
+    $active-color: null,
+    $inactive-color: null,
+    $border: null
+) {
+    $bg: rgba-to-hex($bg);
+    $active-color: rgba-to-hex($active-color);
+    $active-color: if($active-color, $active-color, yiq($bg));
+    $yiq-percent: yiq-value($bg) / 255;
+    $yiq-percent-inverted: 1 - $yiq-percent;
+
+    $opacity: if(
+        $active-color == #fff,
+        0.6 + (0.4 * $yiq-percent),
+        0.6 + (0.4 * (1 - $yiq-percent))
+    );
+
+    $color: if(
+        $inactive-color,
+        rgba-to-hex($inactive-color, $bg),
+        rgba-to-hex(
+            rgba(
+                $active-color,
+                if($yiq-percent < 0.25, $opacity - 0.15, $opacity)
+            ),
+            $bg
+        )
+    );
+    $disabled-color: rgba-to-hex(rgba($color, 0.6), $bg);
+    $muted-color: rgba-to-hex(rgba($color, 0.75), $bg);
+    $border: if(
+        $border,
+        $border,
+        if(
+            $yiq-percent > 0.75,
+            rgba($active-color, $opacity / 8),
+            if(
+                $yiq-percent < 0.25,
+                rgba($active-color, 0.06),
+                rgba($active-color, 0.15)
+            )
+        )
+    );
+
+    @return (
+        opacity: $opacity,
+        yiq-percent: $yiq-percent,
+        yiq-percent-inverted: $yiq-percent-inverted,
+        bg: $bg,
+        color: $color,
+        active-color: $active-color,
+        disabled-color: $disabled-color,
+        muted-color: $muted-color,
+        border: $border
+    );
+}

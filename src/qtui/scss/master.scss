@@ -1,5 +1,6 @@
 @import "./partials/variables";
 @import "./partials/functions";
+@import "./partials/mixin";
 @import "./partials/core";
 @import "./partials/layout.scss";
 @import "./partials/backgroud.scss";
@@ -7,4 +8,10 @@
 @import "./partials/typography";
 @import "./partials/alert";
 @import "./partials/ant";
+// icons
+@import "./icons/ionicons";
+@import "./icons/feather";
+
+@import "./partials/sidenav";
+@import "./partials/app-brand";
 @import "./partials/auth.scss";

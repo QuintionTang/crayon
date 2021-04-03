@@ -165,3 +165,59 @@ $blockquote-small-color: $gray-500 !default;
 $text-light: #babbbc !default;
 $text-lighter: #d1d2d3 !default;
 $text-lightest: rgba-to-hex($gray-200) !default;
+
+// Sidenav
+
+$sidenav-width: 15.625rem !default; //250px;
+$sidenav-collapsed-width: 4.375rem !default; //70px;
+
+$sidenav-item-spacer: 0.125rem !default;
+
+$sidenav-vertical-link-padding-y: 0.75rem !default;
+$sidenav-vertical-link-padding-x: 1.7rem !default;
+
+// * Sidenav
+
+$sidenav-width: 15.625rem !default; //250px;
+$sidenav-collapsed-width: 4.375rem !default; //70px;
+
+$sidenav-item-spacer: 0.125rem !default;
+
+$sidenav-vertical-link-padding-y: 0.75rem !default;
+$sidenav-vertical-link-padding-x: 1.7rem !default;
+$sidenav-vertical-menu-link-padding-y: 0.625rem !default;
+$sidenav-vertical-menu-level-spacer: 1rem !default;
+
+$sidenav-horizontal-link-padding-y: 1rem !default;
+$sidenav-horizontal-link-padding-x: 1rem !default;
+$sidenav-horizontal-menu-link-padding-y: 0.625rem !default;
+$sidenav-horizontal-menu-level-spacer: 1rem !default;
+
+$sidenav-menu-width: 12.5rem !default; //200px;
+$sidenav-control-width: 2.25rem !default;
+$sidenav-control-arrow-size: 0.5rem !default;
+
+$sidenav-icon-expanded-width: 1.75rem !default;
+$sidenav-icon-expanded-font-size: 1rem !default;
+$sidenav-icon-expanded-spacer: 0.25rem !default;
+
+$sidenav-animation-duration: 0.2s !default;
+
+$sidenav-max-levels: 5 !default;
+
+$sidenav-dark-border-color: rgba(255, 255, 255, 0.1) !default;
+$sidenav-dark-menu-bg: rgba(0, 0, 0, 0.1) !default;
+$sidenav-light-border-color: rgba(255, 255, 255, 0.2) !default;
+$sidenav-light-menu-bg: rgba(0, 0, 0, 0.2) !default;
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}

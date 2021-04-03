@@ -1,6 +1,13 @@
-.qt {
+.rwc {
     * {
         box-sizing: border-box;
+    }
+    &-brand {
+        text-align: left;
+        padding: 10px;
+        img {
+            height: 32px;
+        }
     }
     &-layout {
         display: -webkit-box;
@@ -16,19 +23,192 @@
         -webkit-box-pack: stretch;
         -ms-flex-pack: stretch;
         justify-content: stretch;
-        &-content {
-            width: 100%;
-            display: -webkit-box;
-            display: -ms-flexbox;
+        &-wrapper,
+        &-inner {
             display: flex;
-            -webkit-box-align: stretch;
-            -ms-flex-align: stretch;
             align-items: stretch;
-            -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-            -webkit-box-pack: stretch;
-            -ms-flex-pack: stretch;
-            justify-content: stretch;
+            flex: 1 1 auto;
+            width: 100%;
+        }
+        &-wrapper {
+            overflow: hidden;
+        }
+
+        &-inner {
+            min-height: 100vh;
+        }
+        &-container,
+        &-content,
+        &-content > *,
+        &-sidenav {
+            min-height: 1px;
+        }
+
+        &-container {
+            display: flex;
+            align-items: stretch;
+            flex: 1 1 auto;
+            padding: 0;
+
+            flex-basis: 100%;
+            flex-direction: column;
+            width: 0;
+            min-width: 0;
+            max-width: 100%;
+
+            &-without-sidenav & {
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+            }
+        }
+
+        &-content {
+            display: flex;
+            align-items: stretch;
+            flex: 1 1 auto;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        &-navbar,
+        &-footer {
+            flex: 0 0 auto;
+        }
+
+        &-navbar {
+            position: relative;
+            z-index: 2;
+
+            &.navbar {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .sidenav-vertical .app-brand {
+            padding-right: 1.45rem;
+            padding-left: 1.45rem;
+        }
+        &-sidenav {
+            position: relative;
+            -webkit-box-flex: 1;
+            -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+            &.sidenav {
+                transform: translate3d(0, 0, 0);
+                &-vertical {
+                    height: 100%;
+                }
+            }
+
+            .sidenav-item,
+            .sidenav-header,
+            .sidenav-divider,
+            .sidenav-block {
+                flex: 0 0 auto;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            &.sidenav-vertical {
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                &::not(.sidenav-no-animation) {
+                    -webkit-transition: width 0.2s;
+                    transition: width 0.2s;
+                }
+                .sidenav-inner > .sidenav-item {
+                    margin: 0.125rem 0;
+                }
+            }
+            &.sidenav-vertical,
+            &.sidenav-vertical .sidenav-block,
+            &.sidenav-vertical .sidenav-inner > .sidenav-item,
+            &.sidenav-vertical .sidenav-inner > .sidenav-header {
+                width: 15.625rem;
+            }
+            &.sidenav-vertical .sidenav-inner {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -webkit-box-flex: 1;
+                -ms-flex: 1 1 auto;
+                flex: 1 1 auto;
+            }
+            &.sidenav-vertical .sidenav-inner > .sidenav-item {
+                margin: 0.125rem 0;
+            }
+            &.sidenav-vertical .sidenav-item .sidenav-link,
+            &.sidenav-vertical .sidenav-header,
+            &.sidenav-vertical .sidenav-block {
+                padding: 0.75rem 1.7rem;
+            }
+            &.sidenav-vertical .sidenav-divider {
+                margin-top: 0.75rem;
+                margin-bottom: 0.75rem;
+                padding: 0;
+            }
+            &.sidenav-vertical .sidenav-item .sidenav-toggle {
+                padding-right: calc(1.7rem + 1.26em);
+            }
+            &.sidenav-vertical .sidenav-item .sidenav-toggle::after {
+                right: 1.7rem;
+            }
+            &.sidenav-vertical .sidenav-menu {
+                padding-top: 0.625rem;
+                padding-bottom: 0.625rem;
+            }
+            &.sidenav-vertical .sidenav-menu .sidenav-link {
+                padding-top: 0.625rem;
+                padding-bottom: 0.625rem;
+            }
+            &.sidenav-vertical .sidenav-icon {
+                width: 1.75rem;
+            }
+            &.sidenav-vertical .sidenav-menu .sidenav-icon {
+                margin-right: 0;
+            }
+            &.sidenav-vertical .sidenav-menu .sidenav-link {
+                padding-left: 3.7rem;
+            }
+            &.sidenav-vertical .sidenav-menu .sidenav-menu .sidenav-link {
+                padding-left: 4.7rem;
+            }
+            &.sidenav-vertical
+                .sidenav-menu
+                .sidenav-menu
+                .sidenav-menu
+                .sidenav-link {
+                padding-left: 5.7rem;
+            }
+            &.sidenav-vertical
+                .sidenav-menu
+                .sidenav-menu
+                .sidenav-menu
+                .sidenav-menu
+                .sidenav-link {
+                padding-left: 6.7rem;
+            }
+            &.sidenav-vertical
+                .sidenav-menu
+                .sidenav-menu
+                .sidenav-menu
+                .sidenav-menu
+                .sidenav-menu
+                .sidenav-link {
+                padding-left: 7.7rem;
+            }
+            .sidenav-divider {
+                width: calc(100% - 60px);
+                border: 0;
+                border-top: 1px solid;
+                margin: 0 30px;
+            }
         }
     }
 }

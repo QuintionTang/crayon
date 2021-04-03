@@ -1,0 +1,157 @@
+@mixin themesvilla(
+    $parent,
+    $bg,
+    $color: null,
+    $active-color: null,
+    $border: null,
+    $menu-bg: null
+) {
+    $colors: get-nav-colors($bg, $active-color, $color, $border);
+    $yiq-percent: map-get($colors, yiq-percent);
+
+    @if not $menu-bg {
+        $menu-bg: rgba-to-hex(
+            rgba(
+                map-get($colors, bg),
+                1 - if($yiq-percent > 0.75, 0.025, 0.05)
+            ),
+            if($yiq-percent < 0.25, #fff, #000)
+        );
+    }
+
+    $menu-active-bg: rgba-to-hex(
+        rgba($menu-bg, 1 - if($yiq-percent > 0.75, 0.025, 0.05)),
+        if($yiq-percent < 0.25, #fff, #000)
+    );
+
+    #{$parent} {
+        background-color: map-get($colors, bg) !important;
+        color: map-get($colors, color);
+
+        .sidenav-link,
+        .sidenav-horizontal-prev,
+        .sidenav-horizontal-next {
+            color: map-get($colors, color);
+
+            @include hover-focus {
+                color: map-get($colors, active-color);
+            }
+
+            &.active {
+                color: map-get($colors, active-color);
+            }
+        }
+
+        .sidenav-item.disabled .sidenav-link,
+        .sidenav-horizontal-prev.disabled,
+        .sidenav-horizontal-next.disabled {
+            color: map-get($colors, disabled-color) !important;
+        }
+
+        .sidenav-item.open:not(.sidenav-item-closing) > .sidenav-toggle,
+        .sidenav-item.active > .sidenav-link {
+            color: $active-color;
+        }
+
+        .sidenav-item.active > .sidenav-link:not(.sidenav-toggle) {
+            background-color: $menu-bg;
+        }
+
+        &.sidenav-horizontal
+            .sidenav-menu
+            > .sidenav-item.active
+            > .sidenav-link:not(.sidenav-toggle) {
+            background-color: $menu-active-bg;
+        }
+
+        &.sidenav-horizontal
+            .sidenav-inner
+            > .sidenav-item:not(.sidenav-item-closing)
+            > .sidenav-menu,
+        &.sidenav-horizontal
+            .sidenav-inner
+            > .sidenav-item.open
+            > .sidenav-toggle {
+            background: $menu-bg;
+        }
+
+        .sidenav-inner
+            > .sidenav-item.sidenav-item-closing
+            .sidenav-item.open
+            .sidenav-menu,
+        .sidenav-inner
+            > .sidenav-item.sidenav-item-closing
+            .sidenav-item.open
+            .sidenav-toggle {
+            background: transparent;
+            color: map-get($colors, color);
+        }
+
+        .sidenav-text {
+            color: map-get($colors, active-color);
+        }
+
+        .sidenav-header {
+            color: map-get($colors, muted-color);
+        }
+
+        hr,
+        .sidenav-divider,
+        .sidenav-inner > .sidenav-item.open > .sidenav-menu::before {
+            border-color: map-get($colors, border) !important;
+        }
+
+        .sidenav-inner > .sidenav-header::before,
+        .sidenav-block::before {
+            background-color: map-get($colors, border);
+        }
+
+        .sidenav-inner
+            > .sidenav-item.open
+            .sidenav-item.open
+            > .sidenav-toggle::before {
+            background-color: rgba-to-hex(map-get($colors, border), $menu-bg);
+        }
+
+        .sidenav-inner
+            > .sidenav-item.open
+            .sidenav-item.active
+            > .sidenav-link::before {
+            background-color: map-get($colors, active-color);
+        }
+
+        .sidenav-inner
+            > .sidenav-item.open
+            .sidenav-item.open
+            > .sidenav-toggle::before,
+        .sidenav-inner
+            > .sidenav-item.open
+            .sidenav-item.active
+            > .sidenav-link::before {
+            box-shadow: 0 0 0 2px $menu-bg;
+        }
+
+        .ps__thumb-y,
+        .ps__rail-y.ps--clicking > .ps__thumb-y {
+            background: rgba(
+                map-get($colors, active-color),
+                if(
+                    $yiq-percent > 0.75,
+                    map-get($colors, opacity) - 0.4,
+                    map-get($colors, opacity) - 0.2
+                )
+            ) !important;
+        }
+    }
+}
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}

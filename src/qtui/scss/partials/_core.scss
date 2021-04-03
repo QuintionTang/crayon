@@ -10,6 +10,7 @@ html {
 body {
     font-family: $qt-font-family-base !important;
     font-size: $qt-font-size-base !important;
+    background: #f2f3f8;
 }
 
 h1,
@@ -81,4 +82,17 @@ h6,
     font-size: $display4-size;
     font-weight: $display4-weight;
     line-height: $display-line-height;
+}
+hr,
+.sidenav-divider,
+.sidenav-inner > .sidenav-item.open > .sidenav-menu::before {
+    border-color: rgba(78, 81, 85, 0.075) !important;
+}
+a {
+    color: #1e70cd;
+    text-decoration: none;
+    background-color: transparent;
+    &:hover {
+        text-decoration: none;
+    }
 }

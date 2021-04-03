@@ -1,19 +1,27 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AuthLayout from "@/layouts/Auth/index.vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import MainLayout from "@/layouts/Main/index.vue";
 const routerHistory = createWebHistory();
-// createWebHashHistory hash 路由
-// createWebHistory history 路由
-// createMemoryHistory 带缓存 history 路由
 
 const routers = [
     {
         path: "/",
-        component: HelloWorld,
+        redirect: "/dashboard/default",
+        component: MainLayout,
         meta: {
             authRequired: true,
             hidden: true,
         },
+        children: [
+            {
+                path: "/dashboard/default",
+                meta: {
+                    title: "默认",
+                    authRequired: true,
+                },
+                component: () => import("./views/dashboard/default/index.vue"),
+            },
+        ],
     },
     {
         path: "/auth",
