@@ -7,11 +7,11 @@
 1.
 
 ```
-yarn install
+npm install
 ```
 
 2.
 
 ```
-yarn dev
+npm run dev
 ```
