@@ -13,14 +13,6 @@ export default defineConfig({
     base: "./", // 生产环境下的公共路径
     outDir: "dist", // 打包构建输出路径，默认 dist ，如果路径存在，构建之前会被删除
     plugins: [vue()],
-    // 端口号
-    port: 3000,
-
-    // 是否自动在浏览器打开
-    open: true,
-
-    // 是否开启 https
-    https: false,
 
     productionSourceMap: false,
     // 服务端渲染
@@ -31,6 +23,16 @@ export default defineConfig({
     //     include: ["moment", "axios"],
     // },
     server: {
+        open: true, // 启动服务后是否打开浏览器
+        overlay: {
+            // 错误信息展示到页面
+            warnings: true,
+            errors: true,
+        },
+        // host: '0.0.0.0',
+        port: 4002, // 服务端口
+        https: false,
+        hotOnly: false,
         proxy: {
             "/api": {
                 secure: false,

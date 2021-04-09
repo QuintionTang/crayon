@@ -11,6 +11,7 @@
     "ant-design-vue": "^2.1.0",
     "axios": "^0.20.0-0",
     "bootstrap": "^4.6.0",
+    "velocity-animate": "^1.5.2",
     "vue": "^3.0.5",
     "vue-router": "^4.0.5",
     "vuex": "^4.0.0"

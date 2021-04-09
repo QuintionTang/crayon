@@ -1,6 +1,5 @@
 .sidenav {
     display: flex;
-
     .ps__thumb-y,
     .ps__rail-y {
         width: 0.125rem !important;
@@ -11,7 +10,6 @@
         left: auto !important;
         background: none !important;
     }
-
     .ps__rail-y:hover,
     .ps__rail-y:focus,
     .ps__rail-y.ps--clicking,
@@ -339,4 +337,53 @@
 
 .sidenav.bg-dark {
     background: #2c2e3e;
+}
+
+// TopBar .navbar
+.navbar {
+    box-shadow: 0 1px 15px 1px rgba(62, 57, 107, 0.07);
+    &.bg-primary {
+        background-color: #716aca !important;
+        color: #e1dff4;
+        .nav-link {
+            color: #e1dff4;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    &[class*="bg-"] {
+        .app-brand-logo img {
+            filter: brightness(4);
+        }
+        .form-control {
+            &::-moz-placeholder {
+                color: rgba(255, 255, 255, 0.9);
+                opacity: 1;
+            }
+
+            &:-ms-input-placeholder {
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            &::-webkit-input-placeholder {
+                color: rgba(255, 255, 255, 0.9);
+            }
+        }
+    }
+    .avatar-border {
+        border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+    &.bg-white {
+        .app-brand-logo img {
+            filter: brightness(1);
+        }
+    }
+}
+
+.navbar-user {
+    .dropdown-toggle,
+    &.b-nav-dropdown .nav-link {
+        white-space: nowrap;
+    }
 }

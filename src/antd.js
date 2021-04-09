@@ -8,12 +8,14 @@ import {
     Form,
     Card,
     Alert,
+    Dropdown,
 } from "ant-design-vue";
 
 const antd = (app) => {
     app.use(Layout);
     app.use(Row);
     app.use(Col);
+    app.use(Dropdown);
     app.use(Form);
     app.use(Alert);
     app.use(Breadcrumb);

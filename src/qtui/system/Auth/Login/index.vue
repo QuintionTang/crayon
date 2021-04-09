@@ -115,7 +115,6 @@ export default defineComponent({
             errors: computed(() => store.state.auth.errors),
             disLoading: computed(() => {
                 const isLoading = store.state.auth.loading;
-                console.log(isLoading);
                 loading.value = isLoading;
             }),
         };

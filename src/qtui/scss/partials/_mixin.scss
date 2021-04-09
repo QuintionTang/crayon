@@ -144,6 +144,82 @@
         }
     }
 }
+
+// *******************************************************************************
+// * Navbar
+
+@mixin themesvilla-navbar-variant(
+    $parent,
+    $bg,
+    $color: null,
+    $active-color: null,
+    $border: null
+) {
+    $colors: get-nav-colors($bg, $active-color, $color, $border);
+
+    #{$parent} {
+        background-color: map-get($colors, bg) !important;
+        color: map-get($colors, color);
+        .navbar-brand {
+            color: map-get($colors, active-color);
+
+            @include hover-focus {
+                color: map-get($colors, active-color);
+            }
+        }
+
+        .navbar-nav {
+            .nav-link {
+                color: map-get($colors, color);
+
+                @include hover-focus {
+                    color: map-get($colors, active-color);
+                }
+
+                &.disabled {
+                    color: map-get($colors, disabled-color) !important;
+                }
+            }
+
+            .show > .nav-link,
+            .active > .nav-link,
+            .nav-link.show,
+            .nav-link.active {
+                color: map-get($colors, active-color);
+            }
+        }
+
+        .navbar-toggler {
+            color: map-get($colors, color);
+            border-color: map-get($colors, border);
+        }
+
+        .navbar-toggler-icon {
+            background-image: if(
+                map-get($colors, active-color) == #fff,
+                $navbar-dark-toggler-icon-bg,
+                $navbar-light-toggler-icon-bg
+            );
+        }
+
+        .navbar-text {
+            color: map-get($colors, color);
+
+            a {
+                color: map-get($colors, active-color);
+
+                @include hover-focus {
+                    color: map-get($colors, active-color);
+                }
+            }
+        }
+
+        hr {
+            border-color: map-get($colors, border);
+        }
+    }
+}
+
 @mixin keyframes($name) {
     @-webkit-keyframes #{$name} {
         @content;

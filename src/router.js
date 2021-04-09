@@ -3,7 +3,7 @@ import AuthLayout from "@/layouts/Auth/index.vue";
 import MainLayout from "@/layouts/Main/index.vue";
 const routerHistory = createWebHistory();
 
-const routers = [
+const routes = [
     {
         path: "/",
         redirect: "/dashboard/default",
@@ -41,6 +41,9 @@ const routers = [
 
 const router = createRouter({
     history: routerHistory,
-    routes: routers,
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        return savedPosition || { left: 0, top: 0 };
+    },
 });
 export default router;
