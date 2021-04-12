@@ -1,0 +1,79 @@
+.card {
+    border: 0px solid rgba(24, 28, 33, 0.06);
+    border-radius: 0.125rem;
+    background-clip: padding-box;
+    box-shadow: $card-shadow;
+}
+.card-header {
+    background-color: transparent;
+    line-height: $component-line-height;
+}
+
+.card-header,
+.card-title {
+    &.with-elements {
+        display: flex;
+
+        width: 100%;
+
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+.card-header.with-elements,
+.card-title.with-elements {
+    display: flex;
+
+    width: 100%;
+
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-header.with-elements {
+    padding-top: $card-spacer-y / 2;
+    padding-bottom: $card-spacer-y / 2;
+}
+.card-header-elements,
+.card-title-elements {
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+
+    & + &,
+    > * + * {
+        margin-left: 0.25rem;
+    }
+}
+
+.card-header-title {
+    padding: ($card-spacer-y / 2) 0;
+}
+
+.card-header-elements {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+.card .row-bordered > [class^="col-"],
+.card .row-bordered > [class*=" col-"],
+.card .row-bordered > [class^="col "],
+.card .row-bordered > [class*=" col "],
+.card .row-bordered > [class$=" col"],
+.card .row-bordered > [class="col"] {
+    &::before,
+    &::after {
+        border-color: $card-inner-border-color;
+    }
+}
+
+.card-header,
+.card-footer,
+.card hr {
+    border-color: $card-inner-border-color;
+}
+
+.card .list-group-item {
+    border-color: rgba-to-hex($card-inner-border-color);
+}

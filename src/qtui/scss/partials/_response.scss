@@ -1,0 +1,12 @@
+// *******************************************************************************
+// * Containers
+
+.container,
+.container-fluid {
+    padding-right: $container-padding-x-sm;
+    padding-left: $container-padding-x-sm;
+    @include media-breakpoint-up(lg) {
+        padding-right: $container-padding-x;
+        padding-left: $container-padding-x;
+    }
+}

@@ -139,7 +139,7 @@
     .sidenav-block,
     .sidenav-inner > .sidenav-item,
     .sidenav-inner > .sidenav-header {
-        width: $sidenav-width;
+        width: $sidenav-width !important;
     }
 
     .sidenav-inner {

@@ -166,21 +166,11 @@ $text-light: #babbbc !default;
 $text-lighter: #d1d2d3 !default;
 $text-lightest: rgba-to-hex($gray-200) !default;
 
-// Sidenav
-
-$sidenav-width: 15.625rem !default; //250px;
-$sidenav-collapsed-width: 4.375rem !default; //70px;
-
-$sidenav-item-spacer: 0.125rem !default;
-
-$sidenav-vertical-link-padding-y: 0.75rem !default;
-$sidenav-vertical-link-padding-x: 1.7rem !default;
-
 // * Sidenav
 
 $sidenav-width: 15.625rem !default; //250px;
 $sidenav-collapsed-width: 4.375rem !default; //70px;
-
+$sidenav-shadow: rgba(0, 0, 0, 0.05) 0px 0px 10px 0px;
 $sidenav-item-spacer: 0.125rem !default;
 
 $sidenav-vertical-link-padding-y: 0.75rem !default;
@@ -258,3 +248,27 @@ $dropdown-link-active-bg: $gray-50 !default;
 $dropdown-link-disabled-color: $text-lighter !default;
 
 $dropdown-header-color: $text-muted !default;
+
+// *******************************************************************************
+// * Grid
+
+$grid-gutter-width: 1.5rem !default;
+
+$container-padding-x: 2rem !default;
+$container-padding-x-sm: 1rem !default;
+$container-padding-y: 1.5rem !default;
+
+// *******************************************************************************
+// * Cards
+
+$card-spacer-y: 1.3rem;
+$card-spacer-x: 1.5rem;
+$card-spacer-x-sm: 1rem;
+$card-border-color: rgba(24, 28, 33, 0.06);
+$card-inner-border-color: $card-border-color;
+$card-cap-bg: transparent;
+
+$card-img-overlay-padding: 1.5rem;
+
+$card-columns-gap: 1.5rem;
+$card-shadow: rgba(24, 28, 33, 0.04) 0px 10px 30px 0px;
