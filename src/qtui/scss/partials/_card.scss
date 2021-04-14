@@ -77,3 +77,58 @@
 .card .list-group-item {
     border-color: rgba-to-hex($card-inner-border-color);
 }
+
+// *******************************************************************************
+// * Bordered rows
+
+.row-bordered {
+    overflow: hidden;
+
+    > .col,
+    > [class^="col-"],
+    > [class*=" col-"],
+    > [class^="col "],
+    > [class*=" col "],
+    > [class$=" col"],
+    > [class="col"] {
+        position: relative;
+        padding-top: 1px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: -1px;
+            left: 0;
+            display: block;
+            height: 0;
+            border-top: 1px solid $bordered-row-border-color;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -1px;
+            display: block;
+            width: 0;
+            border-left: 1px solid $bordered-row-border-color;
+        }
+    }
+
+    &.row-border-light {
+        > .col,
+        > [class^="col-"],
+        > [class*=" col-"],
+        > [class^="col "],
+        > [class*=" col "],
+        > [class$=" col"],
+        > [class="col"] {
+            &::before,
+            &::after {
+                border-color: $gray-100;
+            }
+        }
+    }
+}

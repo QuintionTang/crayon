@@ -68,7 +68,7 @@
                                 class="d-block ui-w-30 rounded-circle avatar-border"
                             />
                             <span class="px-1 mr-lg-2 ml-2 ml-lg-0"
-                                >Cindy Deitch</span
+                                >Quintion Tang</span
                             >
                         </span>
                     </a>

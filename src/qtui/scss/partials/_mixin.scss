@@ -232,10 +232,9 @@
     }
 }
 
-// 至少具有最小断点宽度的Media，不查询最小的断点。
-// 使@content适用于给定的断点且更宽。
+// 设置指定名称的 @media (min-width: 992px)，如果$name存在，将设置对应的@media。
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
-    $min: breakpoint-min($name, $breakpoints);
+    $min: get-breakpoint($name, $breakpoints);
     @if $min {
         @media (min-width: $min) {
             @content;
