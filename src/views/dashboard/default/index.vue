@@ -11,7 +11,9 @@
                         </div>
                         <div class="card-body">
                             <!--统计内容开始-->
-                            <div class="dashboard-chart-box"></div>
+                            <div class="dashboard-chart-box">
+                                <ChartLine :height="220" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -35,7 +37,9 @@
                                     </div>
                                     <div
                                         class="mt-3 chart-shadow-primary chart-box-h40"
-                                    ></div>
+                                    >
+                                        <ChartSimpleLine :height="40" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +61,12 @@
                                     </div>
                                     <div
                                         class="mt-3 chart-shadow chart-box-h40"
-                                    ></div>
+                                    >
+                                        <ChartSimpleLine
+                                            color="#ffffff"
+                                            :height="40"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -304,12 +313,15 @@
 
 <script>
 import { defineComponent, onMounted, ref } from "vue";
-
-import Breadcrumb from "../../../components/Breadcrumb.vue";
+import ChartLine from "../../components/ChartLine/Line.vue";
+import ChartSimpleLine from "../../components/ChartLine/SimpleLine.vue";
+import Breadcrumb from "@/qtui/components/Breadcrumb.vue";
 export default defineComponent({
     name: "DefaultDashboard",
     components: {
         Breadcrumb,
+        ChartLine,
+        ChartSimpleLine,
     },
     setup() {
         const chartdiv = ref(null);

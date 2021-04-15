@@ -1,6 +1,6 @@
 # Crayon Admin Ui
 
-蜡笔 UI，基于 VUE3 的管理后台
+蜡笔 UI，基于 `VUE3`、`Vite`、`ant-design-vue2` 的管理后台，主要用于学习实践。
 
 ### 开始
 
@@ -16,7 +16,21 @@ npm install
 npm run dev
 ```
 
-### 依赖
+### 涉及资源
+
+#### 字体库
+
+-   `feather`：https://feathericons.com/?query=em
+
+-   `fontawesome`：https://fontawesome.com/
+
+-   `ionicons`：https://ionicons.com/
+
+-   `linearicons`：https://linearicons.com/free
+
+#### chart.js
+
+https://www.chartjs.org/docs/2.9.4/
 
 #### velocity-animate
 

@@ -11,6 +11,7 @@
     "ant-design-vue": "^2.1.0",
     "axios": "^0.20.0-0",
     "bootstrap": "^4.6.0",
+    "chart.js": "^2.9.4",
     "velocity-animate": "^1.5.2",
     "vue": "^3.0.5",
     "vue-router": "^4.0.5",
@@ -32,6 +33,17 @@
     "sass-loader": "^11.0.1",
     "vite": "^2.1.0"
   },
+  "keywords": [
+    "vue3",
+    "vite",
+    "ant-design-vue",
+    "dashboard",
+    "velocity-animate",
+    "crayon-ui",
+    "chart",
+    "admin-template",
+    "dashboard"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/QuintionTang/crayon.git"
