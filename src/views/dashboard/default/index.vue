@@ -204,15 +204,17 @@
                                             ></i>
                                         </div>
                                         <div class="col">
-                                            <h6 class="mb-0 text-muted">
-                                                订阅数量
-                                            </h6>
-                                            <h4 class="mt-3 mb-0">
-                                                <i class="number">8599</i
-                                                ><i
-                                                    class="ion ion-md-arrow-round-down ml-3 text-danger"
-                                                ></i>
-                                            </h4>
+                                            <a-statistic
+                                                title="订阅数量"
+                                                :value="8599"
+                                                :precision="0"
+                                            >
+                                                <template #suffix>
+                                                    <i
+                                                        class="ion ion-md-arrow-round-down ml-3 text-danger"
+                                                    ></i>
+                                                </template>
+                                            </a-statistic>
                                         </div>
                                     </div>
                                     <p class="mb-0 text-muted">
@@ -231,15 +233,17 @@
                                             ></i>
                                         </div>
                                         <div class="col">
-                                            <h6 class="mb-0 text-muted">
-                                                订单数量
-                                            </h6>
-                                            <h4 class="mt-3 mb-0">
-                                                <i class="number">6898</i
-                                                ><i
-                                                    class="ion ion-md-arrow-round-up ml-3 text-success"
-                                                ></i>
-                                            </h4>
+                                            <a-statistic
+                                                title="订单数量"
+                                                :value="8599"
+                                                :precision="0"
+                                            >
+                                                <template #suffix>
+                                                    <i
+                                                        class="ion ion-md-arrow-round-up ml-3 text-info"
+                                                    ></i>
+                                                </template>
+                                            </a-statistic>
                                         </div>
                                     </div>
                                     <p class="mb-0 text-muted">
@@ -258,15 +262,17 @@
                                             ></i>
                                         </div>
                                         <div class="col">
-                                            <h6 class="mb-0 text-muted">
-                                                访问数量
-                                            </h6>
-                                            <h4 class="mt-3 mb-0">
-                                                <i class="number">652</i
-                                                ><i
-                                                    class="ion ion-md-arrow-round-down ml-3 text-danger"
-                                                ></i>
-                                            </h4>
+                                            <a-statistic
+                                                title="访问数量"
+                                                :value="8599"
+                                                :precision="0"
+                                            >
+                                                <template #suffix>
+                                                    <i
+                                                        class="ion ion-md-arrow-round-down ml-3 text-danger"
+                                                    ></i>
+                                                </template>
+                                            </a-statistic>
                                         </div>
                                     </div>
                                     <p class="mb-0 text-muted">
@@ -285,15 +291,18 @@
                                             ></i>
                                         </div>
                                         <div class="col">
-                                            <h6 class="mb-0 text-muted">
-                                                当月收入
-                                            </h6>
-                                            <h4 class="mt-3 mb-0">
-                                                ￥<i class="number">6988</i
-                                                ><i
-                                                    class="ion ion-md-arrow-round-up ml-3 text-success"
-                                                ></i>
-                                            </h4>
+                                            <a-statistic
+                                                title="当月收入"
+                                                :value="8599"
+                                                :precision="2"
+                                                prefix="￥"
+                                            >
+                                                <template #suffix>
+                                                    <i
+                                                        class="ion ion-md-arrow-round-up ml-3 text-info"
+                                                    ></i>
+                                                </template>
+                                            </a-statistic>
                                         </div>
                                     </div>
                                     <p class="mb-0 text-muted">
@@ -307,6 +316,29 @@
                 </div>
                 <!-- 2nd row Start -->
             </div>
+            <!--表格部份-->
+            <div class="row">
+                <div class="col-xl-5">
+                    <div class="card mb-4">
+                        <div class="card-header with-elements">
+                            <h6 class="card-header-title mb-0">热门商品</h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <HotGoodsTable />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-7">
+                    <div class="card mb-4">
+                        <div class="card-header with-elements">
+                            <h6 class="card-header-title mb-0">最新订单</h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <LatestOrdersTable />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -316,12 +348,16 @@ import { defineComponent, onMounted, ref } from "vue";
 import ChartLine from "../../components/ChartLine/Line.vue";
 import ChartSimpleLine from "../../components/ChartLine/SimpleLine.vue";
 import Breadcrumb from "@/qtui/components/Breadcrumb.vue";
+import HotGoodsTable from "../../components/Tables/HotGoods.vue";
+import LatestOrdersTable from "../../components/Tables/LatestOrders.vue";
 export default defineComponent({
     name: "DefaultDashboard",
     components: {
         Breadcrumb,
         ChartLine,
         ChartSimpleLine,
+        HotGoodsTable,
+        LatestOrdersTable,
     },
     setup() {
         const chartdiv = ref(null);

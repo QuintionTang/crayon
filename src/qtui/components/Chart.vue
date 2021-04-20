@@ -70,7 +70,7 @@ export default defineComponent({
             init();
         });
         return {
-            refChart,
+            refChart: refChart,
             setHeight,
         };
     },
