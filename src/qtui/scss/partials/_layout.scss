@@ -93,6 +93,7 @@
             -webkit-box-flex: 1;
             -ms-flex: 1 0 auto;
             flex: 1 0 auto;
+            box-shadow: $sidenav-shadow;
             &.sidenav {
                 transform: translate3d(0, 0, 0);
                 &-vertical {
@@ -210,5 +211,44 @@
                 margin: 0 30px;
             }
         }
+    }
+}
+
+// *******************************************************************************
+// * Layout containers
+
+.container-p-x {
+    padding-right: $container-padding-x-sm !important;
+    padding-left: $container-padding-x-sm !important;
+
+    @include media-breakpoint-up(lg) {
+        padding-right: $container-padding-x !important;
+        padding-left: $container-padding-x !important;
+    }
+}
+.container-m--x {
+    margin-right: -$container-padding-x-sm !important;
+    margin-left: -$container-padding-x-sm !important;
+
+    @include media-breakpoint-up(lg) {
+        margin-right: -$container-padding-x !important;
+        margin-left: -$container-padding-x !important;
+    }
+}
+
+.container-p-y {
+    &:not([class^="pt-"]):not([class*=" pt-"]) {
+        padding-top: $container-padding-y !important;
+    }
+    &:not([class^="pb-"]):not([class*=" pb-"]) {
+        padding-bottom: $container-padding-y !important;
+    }
+}
+.container-m--y {
+    &:not([class^="mt-"]):not([class*=" mt-"]) {
+        margin-top: -$container-padding-y !important;
+    }
+    &:not([class^="mb-"]):not([class*=" mb-"]) {
+        margin-bottom: -$container-padding-y !important;
     }
 }

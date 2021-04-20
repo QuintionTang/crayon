@@ -139,7 +139,7 @@
     .sidenav-block,
     .sidenav-inner > .sidenav-item,
     .sidenav-inner > .sidenav-header {
-        width: $sidenav-width;
+        width: $sidenav-width !important;
     }
 
     .sidenav-inner {
@@ -385,5 +385,20 @@
     .dropdown-toggle,
     &.b-nav-dropdown .nav-link {
         white-space: nowrap;
+    }
+}
+.navbar-search-box {
+    .ant-input-search,
+    .ant-input-search input {
+        background: transparent;
+        border: none;
+        color: #fff;
+    }
+    .ant-input-search-icon {
+        color: #fff;
+    }
+    input::placeholder {
+        color: $input-inverted-placeholder-color;
+        font-size: px-to-rem(14px);
     }
 }

@@ -231,3 +231,15 @@
         @content;
     }
 }
+
+// 设置指定名称的 @media (min-width: 992px)，如果$name存在，将设置对应的@media。
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+    $min: get-breakpoint($name, $breakpoints);
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}

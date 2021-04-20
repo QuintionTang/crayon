@@ -5,17 +5,19 @@
 // * Colors 颜色定义
 
 // 颜色体系
-$white: #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black: #000 !default;
+$white: #fff;
+$black: #181c21;
+$gray-25: rgba($black, 0.015);
+$gray-50: rgba($black, 0.03);
+$gray-100: rgba($black, 0.06);
+$gray-200: rgba($black, 0.1);
+$gray-300: rgba($black, 0.2);
+$gray-400: rgba($black, 0.3);
+$gray-500: rgba($black, 0.4);
+$gray-600: rgba($black, 0.5);
+$gray-700: rgba($black, 0.6);
+$gray-800: rgba($black, 0.8);
+$gray-900: rgba($black, 0.9);
 
 $grays: () !default;
 
@@ -34,8 +36,8 @@ $grays: map-merge(
     $grays
 );
 
-$blue: #007bff !default;
-$indigo: #6610f2 !default;
+$blue: #1e70cd !default;
+$indigo: #716aca !default;
 $purple: #6f42c1 !default;
 $pink: #e83e8c !default;
 $red: #dc3545 !default;
@@ -43,7 +45,7 @@ $orange: #fd7e14 !default;
 $yellow: #ffc107 !default;
 $green: #28a745 !default;
 $teal: #20c997 !default;
-$cyan: #17a2b8 !default;
+$cyan: #1e9ff2 !default;
 
 $colors: () !default;
 $colors: map-merge(
@@ -166,21 +168,11 @@ $text-light: #babbbc !default;
 $text-lighter: #d1d2d3 !default;
 $text-lightest: rgba-to-hex($gray-200) !default;
 
-// Sidenav
-
-$sidenav-width: 15.625rem !default; //250px;
-$sidenav-collapsed-width: 4.375rem !default; //70px;
-
-$sidenav-item-spacer: 0.125rem !default;
-
-$sidenav-vertical-link-padding-y: 0.75rem !default;
-$sidenav-vertical-link-padding-x: 1.7rem !default;
-
 // * Sidenav
 
 $sidenav-width: 15.625rem !default; //250px;
 $sidenav-collapsed-width: 4.375rem !default; //70px;
-
+$sidenav-shadow: rgba(0, 0, 0, 0.05) 0px 0px 10px 0px;
 $sidenav-item-spacer: 0.125rem !default;
 
 $sidenav-vertical-link-padding-y: 0.75rem !default;
@@ -258,3 +250,42 @@ $dropdown-link-active-bg: $gray-50 !default;
 $dropdown-link-disabled-color: $text-lighter !default;
 
 $dropdown-header-color: $text-muted !default;
+
+// *******************************************************************************
+// * Grid
+
+$grid-gutter-width: 1.5rem !default;
+
+$container-padding-x: 2rem !default;
+$container-padding-x-sm: 1rem !default;
+$container-padding-y: 1.5rem !default;
+
+$grid-breakpoints: ();
+$grid-breakpoints: map-merge(
+    (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+    ),
+    $grid-breakpoints
+);
+// *******************************************************************************
+// * Cards
+
+$card-spacer-y: 1.3rem;
+$card-spacer-x: 1.5rem;
+$card-spacer-x-sm: 1rem;
+$card-border-color: rgba(24, 28, 33, 0.06);
+$card-inner-border-color: $card-border-color;
+$card-cap-bg: transparent;
+
+$card-img-overlay-padding: 1.5rem;
+
+$card-columns-gap: 1.5rem;
+$card-shadow: rgba(24, 28, 33, 0.04) 0px 10px 30px 0px;
+
+// *******************************************************************************
+// * Forms
+$input-inverted-placeholder-color: rgba(#fff, 0.7);

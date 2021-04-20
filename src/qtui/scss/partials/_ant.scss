@@ -19,4 +19,13 @@
             font-size: $qt-font-size-base;
         }
     }
+    &-table {
+        &-tbody {
+            tr {
+                td {
+                    font-size: px-to-rem(12px);
+                }
+            }
+        }
+    }
 }

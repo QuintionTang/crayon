@@ -9,18 +9,29 @@ import {
     Card,
     Alert,
     Dropdown,
+    Menu,
+    Table,
+    Statistic,
 } from "ant-design-vue";
 
+const usedComponents = [
+    Layout,
+    Table,
+    Row,
+    Col,
+    Dropdown,
+    Menu,
+    Form,
+    Alert,
+    Breadcrumb,
+    Input,
+    Button,
+    Card,
+    Statistic,
+];
 const antd = (app) => {
-    app.use(Layout);
-    app.use(Row);
-    app.use(Col);
-    app.use(Dropdown);
-    app.use(Form);
-    app.use(Alert);
-    app.use(Breadcrumb);
-    app.use(Input);
-    app.use(Button);
-    app.use(Card);
+    for (const antComponent of usedComponents) {
+        app.use(antComponent);
+    }
 };
 export default antd;

@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import "ant-design-vue/dist/antd.css";
+import "ant-design-vue/dist/antd.min.css";
+
 import "./global.scss";
 import antd from "./antd";
 import router from "./router";
