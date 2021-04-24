@@ -75,6 +75,7 @@ const mutations = {
     },
 };
 const authModule = {
+    namespaced: true,
     state,
     actions,
     mutations,

@@ -21,6 +21,14 @@ const routes = [
                 },
                 component: () => import("./views/dashboard/default/index.vue"),
             },
+            {
+                path: "/tables/antd",
+                meta: {
+                    title: "Antd表格",
+                    authRequired: true,
+                },
+                component: () => import("./views/tables/antd.vue"),
+            },
         ],
     },
     {

@@ -61,7 +61,7 @@
     </div>
 </template>
 <script>
-import { useStore } from "vuex";
+import { useStore } from "@/store";
 import { defineComponent, computed, reactive, ref } from "vue";
 export default defineComponent({
     setup() {
@@ -75,7 +75,7 @@ export default defineComponent({
         const onSubmit = () => {
             loading.value = true;
             loginRef.value.validate().then(() => {
-                store.dispatch("login", loginState);
+                store.dispatch("auth/login", loginState);
             });
         };
         const rules = {
