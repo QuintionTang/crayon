@@ -1,3 +1,9 @@
+/**
+ * 菜单数据
+ *
+ * 管理系统菜单数据
+ * TODO：需要优化，暂对更深一层的菜单结构支持不好
+ */
 const MenusData = [
     {
         title: "仪表盘",
@@ -7,6 +13,7 @@ const MenusData = [
             {
                 title: "默认",
                 key: "dashboardDefault",
+                parentKey: "dashboard",
                 url: "/dashboard/default",
             },
         ],
@@ -24,6 +31,7 @@ const MenusData = [
             {
                 title: "Antd表格",
                 key: "antdTables",
+                parentKey: "tablesType",
                 url: "/tables/antd",
             },
         ],

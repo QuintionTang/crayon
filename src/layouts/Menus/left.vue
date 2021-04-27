@@ -23,6 +23,7 @@
                 :item="item"
                 :activeSubmenuKey="activeSubmenuKey"
                 :handleSubmenuClick="handleSubmenuClick"
+                :activeItem="activeItem"
             />
             <MenuCategory v-if="item.category" :item="item" />
         </template>
@@ -31,9 +32,17 @@
 
 <script>
 import { useStore } from "@/store";
+import { useRoute } from "vue-router";
+
 import MenuCategory from "./partials/category.vue";
 import MenuItem from "./partials/menu.vue";
-import { defineComponent, computed, ref } from "@vue/runtime-core";
+import {
+    defineComponent,
+    computed,
+    ref,
+    watch,
+    onMounted,
+} from "@vue/runtime-core";
 export default defineComponent({
     components: {
         MenuCategory,
@@ -41,19 +50,35 @@ export default defineComponent({
     },
     setup() {
         const store = useStore();
+        const route = useRoute();
+        const setCurrentAction = (r) => {
+            store.dispatch("menus/currentRoute", r);
+        };
         const sideMenu = computed(() => store.state.menus.menus);
         const activeSubmenuKey = computed(
             () => store.state.menus.activeSubmenuKey
         );
+        const activeItem = computed(() => store.state.menus.activeItem);
         const menusData = ref(sideMenu.value);
         const handleSubmenuClick = (key) => {
             store.dispatch("menus/setActiveSubmenuKey", {
                 key,
             });
         };
+
+        watch(
+            computed(() => route.path),
+            () => {
+                setCurrentAction(route);
+            }
+        );
+        onMounted(() => {
+            setCurrentAction(route);
+        });
         return {
             menusData,
             activeSubmenuKey,
+            activeItem,
             handleSubmenuClick,
         };
     },

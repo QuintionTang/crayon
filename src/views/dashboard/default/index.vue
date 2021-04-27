@@ -331,13 +331,11 @@
 import { defineComponent, onMounted, ref } from "vue";
 import ChartLine from "../../components/ChartLine/Line.vue";
 import ChartSimpleLine from "../../components/ChartLine/SimpleLine.vue";
-import Breadcrumb from "@/qtui/components/Breadcrumb.vue";
 import HotGoodsTable from "../../components/Tables/HotGoods.vue";
 import LatestOrdersTable from "../../components/Tables/LatestOrders.vue";
 export default defineComponent({
     name: "DefaultDashboard",
     components: {
-        Breadcrumb,
         ChartLine,
         ChartSimpleLine,
         HotGoodsTable,

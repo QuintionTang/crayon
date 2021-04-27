@@ -36,6 +36,9 @@
             <li
                 class="sidenav-item"
                 v-for="subitem in item.children"
+                :class="{
+                    active: activeItem && subitem.key === activeItem.key,
+                }"
                 :key="subitem.key"
             >
                 <router-link
@@ -60,6 +63,7 @@ export default defineComponent({
             type: Object,
         },
         activeSubmenuKey: { type: String },
+        activeItem: { type: Object },
         handleSubmenuClick: Function,
     },
 });

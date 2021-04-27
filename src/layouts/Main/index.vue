@@ -30,7 +30,7 @@ import { useStore } from "vuex";
 import { defineComponent, onMounted } from "vue";
 import TopBar from "../TopBar/index.vue";
 import MenuLeft from "../Menus/left.vue";
-import Breadcrumb from "@/qtui/components/Breadcrumb.vue";
+import Breadcrumb from "../Breadcrumb/index.vue";
 import { enter, leave } from "./index";
 export default defineComponent({
     name: "MainLayout",

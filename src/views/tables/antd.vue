@@ -47,7 +47,6 @@
 
 <script>
 import { defineComponent, onMounted, ref } from "vue";
-import Breadcrumb from "@/qtui/components/Breadcrumb.vue";
 
 import AntdTable from "@/qtui/components/Tables/AntdBasic.vue";
 import AntdRowSelection from "@/qtui/components/Tables/AntdRowSelection.vue";
@@ -55,7 +54,6 @@ import AntdRowSelection from "@/qtui/components/Tables/AntdRowSelection.vue";
 export default defineComponent({
     name: "DefaultDashboard",
     components: {
-        Breadcrumb,
         AntdTable,
         AntdRowSelection,
     },
