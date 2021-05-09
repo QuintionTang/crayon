@@ -6,7 +6,7 @@ const STORED_SETTINGS = (storedSettings) => {
     const settings = {};
 
     Object.keys(storedSettings).forEach((key) => {
-        const item = window.localStorage.getItem(`app.settings.${key}`);
+        const item = window.localStorage.getItem(`crayon.settings.${key}`);
         settings[key] =
             typeof item !== "undefined" ? item : storedSettings[key];
     });
@@ -40,7 +40,7 @@ const actions = {
 const mutations = {
     [SET_SETTINGS](state, payload) {
         window.localStorage.setItem(
-            `app.settings.${payload.setting}`,
+            `crayon.settings.${payload.setting}`,
             payload.value
         );
         state[payload.setting] = payload.value;

@@ -1,6 +1,6 @@
 <template>
     <!-- [ Layout wrapper ] Start -->
-    <div class="rwc-layout-wrapper">
+    <div class="rwc-layout-wrapper" v-if="!authorizedInfo.loading">
         <div class="rwc-layout-inner">
             <div
                 id="layout-sidenav"
@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import { useStore } from "vuex";
-import { defineComponent, onMounted } from "vue";
+import { useStore } from "@/store";
+import { computed, defineComponent, onMounted } from "vue";
 import TopBar from "../TopBar/index.vue";
 import MenuLeft from "../Menus/left.vue";
 import Breadcrumb from "../Breadcrumb/index.vue";
@@ -42,6 +42,7 @@ export default defineComponent({
     setup() {
         const store = useStore();
         const settings = store.state.settings;
+        const authorizedInfo = computed(() => store.state.auth);
         const setViewPort = (isMobileView = false, isTabletView = false) => {
             store.dispatch("settings/update", {
                 setting: "isMobileView",
@@ -106,6 +107,7 @@ export default defineComponent({
         return {
             enter,
             leave,
+            authorizedInfo,
         };
     },
 });

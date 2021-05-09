@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AuthLayout from "@/layouts/Auth/index.vue";
 import MainLayout from "@/layouts/Main/index.vue";
+import { useStore } from "@/store";
 const routerHistory = createWebHistory();
 
 const routes = [
@@ -9,7 +10,7 @@ const routes = [
         redirect: "/dashboard/default",
         component: MainLayout,
         meta: {
-            authRequired: true,
+            requiresAuth: true,
             hidden: true,
         },
         children: [
@@ -17,7 +18,7 @@ const routes = [
                 path: "/dashboard/default",
                 meta: {
                     title: "默认",
-                    authRequired: true,
+                    requiresAuth: true,
                 },
                 component: () => import("./views/dashboard/default/index.vue"),
             },
@@ -25,7 +26,7 @@ const routes = [
                 path: "/tables/antd",
                 meta: {
                     title: "Antd表格",
-                    authRequired: true,
+                    requiresAuth: true,
                 },
                 component: () => import("./views/tables/antd.vue"),
             },
@@ -38,6 +39,7 @@ const routes = [
         children: [
             {
                 path: "/auth/login",
+                name: "login",
                 meta: {
                     title: "用户登录",
                 },
@@ -53,5 +55,22 @@ const router = createRouter({
     scrollBehavior(to, from, savedPosition) {
         return savedPosition || { left: 0, top: 0 };
     },
+});
+/**
+ * 功能路由限制，是否需要登录才能进入在此处进行判断
+ */
+router.beforeEach((to, from, next) => {
+    const { matched } = to;
+    const authPage = "login";
+    const store = useStore();
+    store.dispatch("auth/loadAccount");
+    if (
+        to.name !== authPage &&
+        matched.some((record) => record.meta.requiresAuth)
+    ) {
+        store.state.auth.authorized ? next() : next({ name: authPage });
+    } else {
+        next();
+    }
 });
 export default router;

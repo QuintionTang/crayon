@@ -8,6 +8,9 @@ import router from "./router";
 import store from "./store";
 const app = createApp(App);
 
+// mocking api
+import "./fakeApi";
+
 app.use(store);
 antd(app);
 
