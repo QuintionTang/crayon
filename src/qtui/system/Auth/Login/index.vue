@@ -61,23 +61,31 @@
     </div>
 </template>
 <script>
-import { useStore } from "vuex";
-import { defineComponent, computed, reactive, ref } from "vue";
+import { useStore } from "@/store";
+import { defineComponent, computed, reactive, ref, watch } from "vue";
+import { useRouter } from "vue-router";
 export default defineComponent({
     setup() {
         const loading = ref(false);
         const loginRef = ref();
         const loginState = reactive({
-            username: "",
-            password: "",
+            username: "administrator",
+            password: "devpoint",
         });
         const store = useStore();
+        const router = useRouter();
         const onSubmit = () => {
             loading.value = true;
             loginRef.value.validate().then(() => {
-                store.dispatch("login", loginState);
+                store.dispatch("auth/login", loginState);
             });
         };
+        watch(
+            computed(() => store.state.auth.authorized),
+            () => {
+                store.state.auth.authorized && router.push({ path: "/" });
+            }
+        );
         const rules = {
             username: [
                 {

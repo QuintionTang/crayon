@@ -50,6 +50,7 @@
 
             <div class="navbar-nav align-items-lg-center ml-auto">
                 <a-dropdown
+                    v-if="currentAccount"
                     :trigger="['click']"
                     class="navbar-user nav-item dropdown"
                     placement="bottomLeft"
@@ -63,13 +64,13 @@
                             class="d-inline-flex flex-lg-row-reverse align-items-center align-middle"
                         >
                             <img
-                                src="/assets/images/avatars/default.jpg"
+                                :src="currentAccount.avatar"
                                 alt=""
                                 class="d-block ui-w-30 rounded-circle avatar-border"
                             />
-                            <span class="px-1 mr-lg-2 ml-2 ml-lg-0"
-                                >Quintion Tang</span
-                            >
+                            <span class="px-1 mr-lg-2 ml-2 ml-lg-0">{{
+                                currentAccount.username
+                            }}</span>
                         </span>
                     </a>
                     <template #overlay>
@@ -105,10 +106,13 @@
     </nav>
 </template>
 <script>
-import { defineComponent, ref } from "vue";
+import { computed, defineComponent, ref } from "vue";
+import { useStore } from "@/store";
 
 export default defineComponent({
     setup() {
+        const store = useStore();
+        const currentAccount = computed(() => store.state.auth.account);
         const searchKey = ref("");
         const onSearch = () => {
             console.log(searchKey.value);
@@ -116,6 +120,7 @@ export default defineComponent({
         return {
             onSearch,
             searchKey,
+            currentAccount,
         };
     },
 });

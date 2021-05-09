@@ -12,6 +12,8 @@ import {
     Menu,
     Table,
     Statistic,
+    Tag,
+    Divider,
 } from "ant-design-vue";
 
 const usedComponents = [
@@ -28,6 +30,8 @@ const usedComponents = [
     Button,
     Card,
     Statistic,
+    Tag,
+    Divider,
 ];
 const antd = (app) => {
     for (const antComponent of usedComponents) {

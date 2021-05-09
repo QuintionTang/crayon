@@ -1,10 +1,12 @@
-import { useStore } from "vuex";
+export const UPDATE_SETTINGS = "update";
+export const SET_SETTINGS = "setSettings";
+export const SETUP_URL_SETTINGS = "setupUrlSettings";
 
 const STORED_SETTINGS = (storedSettings) => {
     const settings = {};
 
     Object.keys(storedSettings).forEach((key) => {
-        const item = window.localStorage.getItem(`app.settings.${key}`);
+        const item = window.localStorage.getItem(`crayon.settings.${key}`);
         settings[key] =
             typeof item !== "undefined" ? item : storedSettings[key];
     });
@@ -30,15 +32,20 @@ const state = {
         isFooterDark: false,
     }),
 };
+const actions = {
+    [UPDATE_SETTINGS]({ commit }, payload) {
+        commit(SET_SETTINGS, payload);
+    },
+};
 const mutations = {
-    CHANGE_SETTING(state, payload) {
+    [SET_SETTINGS](state, payload) {
         window.localStorage.setItem(
-            `app.settings.${payload.setting}`,
+            `crayon.settings.${payload.setting}`,
             payload.value
         );
         state[payload.setting] = payload.value;
     },
-    SETUP_URL_SETTINGS(state, payload) {
+    [SETUP_URL_SETTINGS](state, payload) {
         let queryParams = payload;
         let keys = false;
         if (payload.redirect) {
@@ -82,7 +89,9 @@ const getters = {
     state: (state) => state,
 };
 const settingsModule = {
+    namespaced: true,
     state,
+    actions,
     mutations,
     getters,
 };
