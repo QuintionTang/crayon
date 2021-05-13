@@ -7,7 +7,9 @@
                         <h6 class="card-header-title mb-0">基础用法</h6>
                         <div class="card-header-elements ml-auto"></div>
                     </div>
-                    <div class="card-body p-0"><AntdTable /></div>
+                    <div class="card-body p-0">
+                        <AntdTable />
+                    </div>
                 </div>
             </div>
             <div class="col-xl-6 col-md-12">
@@ -16,18 +18,17 @@
                         <h6 class="card-header-title mb-0">数据选择</h6>
                         <div class="card-header-elements ml-auto"></div>
                     </div>
-                    <div class="card-body p-0">
-                        <AntdRowSelection />
-                    </div>
+                    <div class="card-body p-0"><AntdRowSelection /></div>
                 </div>
             </div>
+
             <div class="col-xl-6 col-md-12">
                 <div class="card mb-4">
                     <div class="card-header with-elements">
                         <h6 class="card-header-title mb-0">过滤排序</h6>
                         <div class="card-header-elements ml-auto"></div>
                     </div>
-                    <div class="card-body p-0"><AntdTable /></div>
+                    <div class="card-body p-0"><AntdSort /></div>
                 </div>
             </div>
             <div class="col-xl-6 col-md-12">
@@ -46,15 +47,15 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref } from "vue";
-
+import { defineComponent, onMounted } from "vue";
 import AntdTable from "@/qtui/components/Tables/AntdBasic.vue";
+import AntdSort from "@/qtui/components/Tables/AntdSort.vue";
 import AntdRowSelection from "@/qtui/components/Tables/AntdRowSelection.vue";
-
 export default defineComponent({
-    name: "DefaultDashboard",
+    name: "AntdTables",
     components: {
         AntdTable,
+        AntdSort,
         AntdRowSelection,
     },
     setup() {

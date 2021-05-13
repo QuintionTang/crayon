@@ -9,3 +9,13 @@ export function deepCopy(obj) {
 export function findInArray(array, callback) {
     return array.find((item) => callback(item));
 }
+
+export function sortIteratee(a, b, field, order) {
+    return (
+        ((av, bv) => (av > bv ? 1 : -1))(a[field], b[field]) *
+        (order === "desc" ? -1 : 1)
+    );
+}
+export function sortBy(collection, field, order = "desc") {
+    return collection.sort((a, b) => sortIteratee(a, b, field, order));
+}

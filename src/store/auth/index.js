@@ -42,7 +42,7 @@ const getters = {
     },
 };
 const actions = {
-    [LOAD_ACCOUNT]({ commit, payload }) {
+    [LOAD_ACCOUNT]({ commit }) {
         commit(SET_READY, true);
 
         const currentAccount = storageHelper.get(USER_KEY);

@@ -45,7 +45,7 @@ apiClient.interceptors.response.use(
             };
         } else {
             if (data.code === 0) {
-                if (Number.isFinite(data.total_count)) {
+                if (Number.isFinite(data.total)) {
                     return {
                         data: data.data,
                         ...data,

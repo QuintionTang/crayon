@@ -30,6 +30,14 @@ const routes = [
                 },
                 component: () => import("./views/tables/antd.vue"),
             },
+            {
+                path: "/ecommerce/products",
+                meta: {
+                    title: "商品列表",
+                    requiresAuth: true,
+                },
+                component: () => import("./views/ecommerce/list/index.vue"),
+            },
         ],
     },
     {

@@ -1,8 +1,8 @@
 <template>
     <a-table
         :columns="columns"
-        :dataSource="dataSource"
-        :rowSelection="rowSelection"
+        :dataSource="tableData"
+        @change="handleChange"
         :pagination="false"
     >
         <template #name="{ text }">
@@ -45,31 +45,35 @@
     </a-table>
 </template>
 <script>
-import { defineComponent } from "vue";
-import { dataSource, baseColumns } from "./data.js";
-
-const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {
-        console.log(
-            `selectedRowKeys: ${selectedRowKeys}`,
-            "selectedRows: ",
-            selectedRows
-        );
-    },
-    onSelect: (record, selected, selectedRows) => {
-        console.log(record, selected, selectedRows);
-    },
-    onSelectAll: (selected, selectedRows, changeRows) => {
-        console.log(selected, selectedRows, changeRows);
-    },
-};
+import { defineComponent, ref } from "vue";
+import { dataSource, sortColumns } from "./data";
+import { sortBy } from "@/helper/index";
 export default defineComponent({
-    name: "AntdRowSelectionTable",
+    name: "AntdSortTable",
     setup() {
+        const orderValues = {
+            ascend: "asc",
+            descend: "desc",
+        };
+        const tableData = ref(dataSource);
+        const handleChange = (page, filters, sorter) => {
+            const { field, order } = sorter;
+            const filtersKeys = Object.keys({ ...filters });
+            if (filtersKeys.length > 0) {
+                tableData.value = [...dataSource].filter((item) =>
+                    filtersKeys.some(
+                        (key) =>
+                            filters[key].length === 0 ||
+                            filters[key].includes(item[key])
+                    )
+                );
+            }
+            sortBy(tableData.value, field, orderValues[order]);
+        };
         return {
-            rowSelection,
-            dataSource,
-            columns: baseColumns,
+            tableData,
+            handleChange,
+            columns: sortColumns,
         };
     },
 });

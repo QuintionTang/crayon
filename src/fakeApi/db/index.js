@@ -1,9 +1,10 @@
-import { users } from "./data";
+import { users, products } from "./data";
 import { deepCopy, findInArray } from "@/helper/index";
-
+import collectionHelper from "./collectionHelper";
 class FakeDb {
     constructor() {
         this.users = deepCopy(users);
+        this.productsHelper = new collectionHelper(products);
     }
     checkAuth(username, password) {
         const { users } = this;
@@ -21,6 +22,10 @@ class FakeDb {
         } else {
             return false;
         }
+    }
+    products(params) {
+        const result = this.productsHelper.list(params);
+        return result;
     }
 }
 

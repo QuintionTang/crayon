@@ -36,5 +36,23 @@ const MenusData = [
             },
         ],
     },
+    {
+        category: true,
+        title: "应用模块",
+        key: "apps",
+    },
+    {
+        title: "商城",
+        icon: "feather icon-shopping-cart",
+        key: "ecommerce",
+        children: [
+            {
+                title: "商品列表",
+                key: "ecommerceProducts",
+                parentKey: "ecommerce",
+                url: "/ecommerce/products",
+            },
+        ],
+    },
 ];
 export default MenusData;

@@ -64,7 +64,7 @@
                             class="d-inline-flex flex-lg-row-reverse align-items-center align-middle"
                         >
                             <img
-                                :src="currentAccount.avatar"
+                                src="/assets/images/avatars/default.jpg"
                                 alt=""
                                 class="d-block ui-w-30 rounded-circle avatar-border"
                             />

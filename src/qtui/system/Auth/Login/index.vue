@@ -69,8 +69,8 @@ export default defineComponent({
         const loading = ref(false);
         const loginRef = ref();
         const loginState = reactive({
-            username: "administrator",
-            password: "devpoint",
+            username: "",
+            password: "",
         });
         const store = useStore();
         const router = useRouter();

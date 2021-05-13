@@ -1,27 +1,20 @@
 <template>
-    <a-table :columns="columns" :dataSource="dataSource" :pagination="false">
+    <a-table
+        :columns="columns"
+        :loading="loading"
+        :dataSource="dataSource"
+        :pagination="false"
+        rowKey="id"
+    >
         <template #name="{ text }">
             <a>{{ text }}</a>
         </template>
-        <template #customTitle>
-            <span> Name </span>
+        <template #price="{ text }">
+            ￥
+            <i class="number">{{ text }}</i>
         </template>
-        <template #tags="{ text: tags }">
-            <span>
-                <a-tag
-                    v-for="tag in tags"
-                    :key="tag"
-                    :color="
-                        tag === 'loser'
-                            ? 'volcano'
-                            : tag.length > 5
-                            ? 'geekblue'
-                            : 'green'
-                    "
-                >
-                    {{ tag.toUpperCase() }}
-                </a-tag>
-            </span>
+        <template #number="{ text }">
+            <i class="number">{{ text }}</i>
         </template>
         <template #action="{ record }">
             <a class="btn btn-sm btn-warning mr-2" href="javascript: void(0);">
@@ -40,14 +33,24 @@
     </a-table>
 </template>
 <script>
-import { defineComponent } from "vue";
-import { dataSource, baseColumns } from "./data";
+import { computed, defineComponent } from "vue";
+import { productsColumns } from "./columnsData";
+import { useStore } from "@/store";
+
 export default defineComponent({
-    name: "AntdBasicTable",
+    name: "QtProducts",
     setup() {
+        const store = useStore();
+        const dataSource = computed(() => {
+            return store.state.ecommerce.list;
+        });
+        const loading = computed(() => {
+            return store.state.ecommerce.loading;
+        });
         return {
+            loading,
             dataSource,
-            columns: baseColumns,
+            columns: productsColumns,
         };
     },
 });
