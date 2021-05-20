@@ -38,7 +38,7 @@
                         <div class="card-header-elements ml-auto"></div>
                     </div>
                     <div class="card-body p-0">
-                        <AntdRowSelection />
+                        <AntdRowExpand />
                     </div>
                 </div>
             </div>
@@ -50,6 +50,8 @@
 import { defineComponent, onMounted } from "vue";
 import AntdTable from "@/qtui/components/Tables/AntdBasic.vue";
 import AntdSort from "@/qtui/components/Tables/AntdSort.vue";
+import AntdRowExpand from "@/qtui/components/Tables/AntdRowExpand.vue";
+
 import AntdRowSelection from "@/qtui/components/Tables/AntdRowSelection.vue";
 export default defineComponent({
     name: "AntdTables",
@@ -57,6 +59,7 @@ export default defineComponent({
         AntdTable,
         AntdSort,
         AntdRowSelection,
+        AntdRowExpand,
     },
     setup() {
         onMounted(() => {});
