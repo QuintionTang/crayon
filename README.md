@@ -20,6 +20,26 @@ npm install
 npm run dev
 ```
 
+## Docker 部署运行
+
+1.
+
+```
+npm run build
+```
+
+构建完成后，执行下面命令
+
+2.
+
+```
+docker-compose up
+```
+
+打开浏览器，输入`http://localhost` ，就可以看到效果。
+
+> 关于 Docker 运行，可以查阅《[面向 WEB 开发人员的 Docker](https://juejin.cn/column/6965049243660714021)》
+
 ## 涉及资源
 
 #### 字体库
@@ -63,3 +83,7 @@ https://www.chartjs.org/docs/2.9.4/
 
     - Antd表格增加展开行表
     - 增加演示产品图片
+
+#### `2021-05-27`
+
+    - 增加 docker-compose.yml 以支持docker运行

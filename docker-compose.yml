@@ -1,0 +1,15 @@
+version: "3" # 表示该 Docker-Compose 文件使用的版本为3
+services:
+    nginx:
+        image: nginx:latest
+        container_name: vue-crayon
+        volumes:
+            - ./dist:/usr/share/nginx/html
+            - ./configs/conf.d:/etc/nginx/conf.d
+        ports:
+            - "80:80"
+        networks:
+            - crayonnet
+        restart: on-failure
+networks:
+    crayonnet:
