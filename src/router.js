@@ -71,11 +71,11 @@ router.beforeEach((to, from, next) => {
     const { matched } = to;
     const authPage = "login";
     const store = useStore();
-    store.dispatch("auth/loadAccount");
     if (
         to.name !== authPage &&
         matched.some((record) => record.meta.requiresAuth)
     ) {
+        store.dispatch("auth/loadAccount");
         store.state.auth.authorized ? next() : next({ name: authPage });
     } else {
         next();
