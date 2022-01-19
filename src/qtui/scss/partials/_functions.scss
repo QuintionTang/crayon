@@ -1,6 +1,7 @@
+@use "sass:math";
 // 去掉变量的单位
 @function strip-unit($num) {
-    @return $num / ($num * 0 + 1);
+    @return math.div($num, $num * 0 + 1);
 }
 // RGBA颜色转Hex颜色
 @function rgba-to-hex($color, $background: #fff) {
@@ -15,7 +16,7 @@
 }
 // 单位转换 px => rem
 @function px-to-rem($value) {
-    @return (strip-unit($value) / 16) * 1rem;
+    @return math.div(strip-unit($value), 16) * 1rem;
 }
 @function yiq-value($color) {
     @if $color == transparent {
@@ -28,7 +29,7 @@
     $g: green($color);
     $b: blue($color);
 
-    @return (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+    @return math.div($r * 299 + $g * 587 + $b * 114, 1000);
 }
 // 颜色对比
 @function yiq($color) {
@@ -49,7 +50,7 @@
     $bg: rgba-to-hex($bg);
     $active-color: rgba-to-hex($active-color);
     $active-color: if($active-color, $active-color, yiq($bg));
-    $yiq-percent: yiq-value($bg) / 255;
+    $yiq-percent: math.div(yiq-value($bg), 255);
     $yiq-percent-inverted: 1 - $yiq-percent;
 
     $opacity: if(
@@ -76,7 +77,7 @@
         $border,
         if(
             $yiq-percent > 0.75,
-            rgba($active-color, $opacity / 8),
+            rgba($active-color, math.div($opacity, 8)),
             if(
                 $yiq-percent < 0.25,
                 rgba($active-color, 0.06),

@@ -1,3 +1,4 @@
+@use "sass:math";
 .text-dark {
     color: $body-color !important;
 
@@ -71,9 +72,7 @@
 }
 
 .text-expanded {
-    letter-spacing: (
-        (1 / (strip-unit($qt-font-size-base) * 16)) * 1em
-    ) !important;
+    letter-spacing: math.div(1, strip-unit($qt-font-size-base) * 16) * 1em !important;
 }
 
 .font-weight-light {

@@ -1,6 +1,6 @@
 // Dropdowns
 //
-
+@use "sass:math";
 [data-trigger="hover"] {
     outline: 0;
 }
@@ -116,7 +116,7 @@
                 content: "";
                 position: absolute;
                 top: 50%;
-                right: $dropdown-item-padding-x / 2;
+                right: math.div($dropdown-item-padding-x, 2);
                 display: block;
                 width: 0.375rem;
                 height: 0.375rem;
